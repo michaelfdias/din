@@ -1,3 +1,4 @@
+using System;
 using Din.Domain.Models.Enumerations;
 
 namespace Din.Domain.Models.Entities
@@ -11,6 +12,18 @@ namespace Din.Domain.Models.Entities
         {
             Year = year;
             Month = month;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null || GetType() != obj.GetType()) return false;
+            var round = (Round)obj;
+            return Year == round.Year && Month == round.Month;
+        }
+
+        public override int GetHashCode()
+        {
+            return Tuple.Create(Year, Month).GetHashCode();
         }
     }
 }
