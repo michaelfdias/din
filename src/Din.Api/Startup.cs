@@ -1,5 +1,6 @@
 using Din.Data.Repositories;
 using Din.Domain.Repositories;
+using Din.Domain.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -25,6 +26,7 @@ namespace Din.Api
             services.AddControllers();
             services.AddSingleton<IPinnedExpenseRepository, PinnedExpenseRepository>();
             services.AddSingleton<IExpenseRepository, ExpenseRepository>();
+            services.AddSingleton<IExpenseBookService, ExpenseBookService>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Din.Api", Version = "v1" });
