@@ -12,9 +12,9 @@ namespace Din.Api.Controllers
     [Route("expense-book")]
     public class ExpenseBookController : ControllerBase
     {
-        private readonly IExpenseBookService _expenseBookService;
+        private readonly ExpenseBookService _expenseBookService;
 
-        public ExpenseBookController(IExpenseBookService expenseBookService)
+        public ExpenseBookController(ExpenseBookService expenseBookService)
         {
             _expenseBookService = expenseBookService;
         }

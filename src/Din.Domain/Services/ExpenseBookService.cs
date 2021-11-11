@@ -6,7 +6,7 @@ using Din.Domain.Repositories;
 
 namespace Din.Domain.Services
 {
-    public class ExpenseBookService : IExpenseBookService
+    public class ExpenseBookService
     {
         private readonly IPinnedExpenseRepository _pinnedExpenseRepository;
         private readonly IExpenseRepository _expenseRepository;

@@ -26,7 +26,7 @@ namespace Din.Api
             services.AddControllers();
             services.AddSingleton<IPinnedExpenseRepository, PinnedExpenseRepository>();
             services.AddSingleton<IExpenseRepository, ExpenseRepository>();
-            services.AddSingleton<IExpenseBookService, ExpenseBookService>();
+            services.AddSingleton<ExpenseBookService>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Din.Api", Version = "v1" });
