@@ -28,6 +28,7 @@ namespace Din.Domain.Services
             expensesBook.AddRange(expenses);
             expensesBook.AddRange(pinnedExpenses
                 .Where(pe => expenses.All(e => e.PinnedExpenseId != pe.Id))
+                .Where(pe => pe.From.CompareTo(round) <= 0)
                 .Select(pe => new Expense(pe.Name, round)
                 {
                     DueDay = pe.DueDay,
