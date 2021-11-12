@@ -13,7 +13,7 @@ namespace Din.Data.Repositories
 
         public async Task<IEnumerable<Expense>> Get(Round round)
         {
-            return _expenses.Where(e => e.Round.Equals(round));
+            return _expenses.Where(e => e.Round == round);
         }
 
         public async Task<Expense> Get(Guid id)
