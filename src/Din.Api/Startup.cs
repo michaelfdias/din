@@ -26,6 +26,7 @@ namespace Din.Api
             services.AddControllers();
             services.AddSingleton<IPinnedExpenseRepository, PinnedExpenseRepository>();
             services.AddSingleton<IExpenseRepository, ExpenseRepository>();
+            services.AddSingleton<IExpenseGroupRepository, ExpenseGroupRepository>();
             services.AddSingleton<ExpenseBookService>();
             services.AddSwaggerGen(c =>
             {
