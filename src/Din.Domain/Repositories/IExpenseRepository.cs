@@ -10,5 +10,6 @@ namespace Din.Domain.Repositories
         Task<IEnumerable<Expense>> Get(Round round);
         Task<Expense> Get(Guid id);
         Task<bool> Create(Expense expense);
+        Task<bool> CreateMany(IEnumerable<Expense> expenses);
     }
 }

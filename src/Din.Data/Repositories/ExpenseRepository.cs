@@ -26,5 +26,12 @@ namespace Din.Data.Repositories
             _expenses = _expenses.Append(expense);
             return true;
         }
+
+        public async Task<bool> CreateMany(IEnumerable<Expense> expenses)
+        {
+            foreach (var expense in expenses)
+                _expenses = _expenses.Append(expense);
+            return true;
+        }
     }
 }
