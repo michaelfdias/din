@@ -21,6 +21,14 @@ namespace Din.Domain.Models.Entities
             return new Round(today.Year, month);
         }
 
+        public static Round Next(Round round)
+        {
+            var date = new DateTime(round.Year, (int) round.Month, 1);
+            var next = date.AddMonths(1);
+            Enum.TryParse(next.Month.ToString(), true, out Month month);
+            return new Round(next.Year, month);
+        }
+
         public int CompareTo(Round other)
         {
             return new DateTime(Year, (int)Month, 1)
