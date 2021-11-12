@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Din.Api.Controllers
 {
     [ApiController]
-    [Route("expense-book")]
+    [Route("expenses-book")]
     public class ExpenseBookController : ControllerBase
     {
         private readonly ExpenseBookService _expenseBookService;

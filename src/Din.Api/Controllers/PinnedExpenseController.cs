@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using Din.Domain.Models.Entities;
@@ -10,7 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Din.Api.Controllers
 {
     [ApiController]
-    [Route("pinned-expense")]
+    [Route("pinned-expenses")]
     public class PinnedExpenseController : ControllerBase
     {
         private readonly IPinnedExpenseRepository _pinnedExpenseRepository;
@@ -22,9 +23,12 @@ namespace Din.Api.Controllers
 
         [HttpGet]
         [ProducesResponseType(typeof(IEnumerable<PinnedExpense>), (int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.NoContent)]
         public async Task<IActionResult> Get()
         {
-            return Ok(await _pinnedExpenseRepository.Get());
+            var expenses = await _pinnedExpenseRepository.Get();
+            if (!expenses.Any()) return NoContent();
+            return Ok(expenses);
         }
         
         [HttpGet("{id:Guid}")]

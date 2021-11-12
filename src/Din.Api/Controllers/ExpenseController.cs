@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Din.Api.Controllers
 {
     [ApiController]
-    [Route("expense")]
+    [Route("expenses")]
     public class ExpenseController : ControllerBase
     {
         private readonly IExpenseRepository _expenseRepository;
