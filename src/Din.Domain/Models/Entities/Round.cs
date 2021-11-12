@@ -14,6 +14,13 @@ namespace Din.Domain.Models.Entities
             Month = month;
         }
 
+        public static Round Current()
+        {
+            var today = DateTime.Now;
+            Enum.TryParse(today.Month.ToString(), true, out Month month);
+            return new Round(today.Year, month);
+        }
+
         public override bool Equals(object obj)
         {
             if (obj == null || GetType() != obj.GetType()) return false;

@@ -40,9 +40,9 @@ namespace Din.Api.Controllers
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         public async Task<IActionResult> Post(ExpenseRequest req)
         {
-            var today = DateTime.Now;
-            Enum.TryParse(today.Month.ToString(), true, out Month month);
-            var expense = new Expense(req.Name, new Round(req.Year ?? today.Year, req.Month ?? month))
+            var currentRound = Round.Current();
+            var round = new Round(req.Year ?? currentRound.Year, req.Month ?? currentRound.Month);
+            var expense = new Expense(req.Name, round)
             {
                 DueDay = req.DueDay,
                 Value = req.Value,
